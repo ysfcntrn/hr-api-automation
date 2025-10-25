@@ -65,3 +65,102 @@ git add fileName
 ```bash
 git add directoryName
 ```
+
+**Untracking unwanted files**
+```bash
+git reset fileName
+```
+**Untrack(Reverse git add) for all**
+```bash
+git reset
+```
+
+## Step 4: Commit your changes
+Once you complete all changes for your work, and will not do an additional change
+you could commit. 
+```bash
+git commit -m "Message is always a must"
+```
+
+## Step 5: Link Your Local Repo to A Remote Repository
+- You will create a repository space on the GitHub(or Bitbucket)
+- Then 
+```bash
+git remote add remoteName remoteRepoLink
+```
+
+## Step 6: For the first time you must create a MAIN branch for your remote repo
+```bash
+git branch -M main
+```
+-- main doesn't have to be main, you could name your MAIN branch howevery you want
+
+## Step 7: Push Commited Changes to The Remote Repository
+```bash
+git push -u origin main
+```
+- origin is a remote repo name from step 5, main is a main branch name from step 6
+
+
+## Additional Way To Authenticate Without Username and Password/PAT
+
+1. Get your PAT with necessary permissions
+2. When adding a remote repository, 
+add your PAT at the beginning of the remote repo url.
+3. Know that, github url is always in the format of 
+*https://github.com/your-username/your-reponame.git*
+4. Add your personal access token(PAT) to url
+**https://PAT@github.com/your-username/your-reponame.git**
+
+
+# Git & GitHub Practice 
+
+## 1. Check Repository & Remotes
+Git stores your code locally, but you can connect to remote repository like Github
+and share on that platform.
+
+### Common Commands 
+```bash
+git remote -v
+```
+Shows connected remotes on the git repository. 
+
+```bash
+git remote add origin yourRepoLink
+```
+Adds a remote called `origin`. It doesn't have to be named origin
+however, it is commonly used for remote repo names. 
+
+```bash
+git remote remove origin
+```
+Deletes the remote connection named origin. 
+
+```bash
+git remote rename origin mainRepo
+```
+Command above renames the remote named `origin` to `mainRepo`.
+
+
+## 2. Check Status & Staging
+Git has 3 areas:
+    1. Working directory -> Your real files
+    2. Staging area      -> Files ready to be committed
+    3. Repository        -> History of committed changes 
+
+### Commands
+```bash
+git status
+```
+Shows which files are modified,, new, or staged since the last commit. 
+```bash
+git add file/folderName # For individually selecting to add
+git add -A  # for including all changes
+```
+It stages the files and all the files/folders in staging area will be included in next 
+commit. 
+```bash
+git reset file/foldername # Removes the files/folders from staging area so that 
+# they will not be included in the next commit. 
+```
+
