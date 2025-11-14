@@ -11,8 +11,6 @@ pipeline{
             }
         }
 
-    }
-
     stage('Setup Node Environment'){
         steps{
             sh 'npm ci || npm install'
@@ -33,7 +31,8 @@ pipeline{
             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
         }
     }
-
+    }
+        
     post{
         success { echo 'Build SUCCEDED!! -- All api tests pased. '}
         failure {echo 'Build failed.'}
